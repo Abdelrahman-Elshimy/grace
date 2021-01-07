@@ -1,0 +1,228 @@
+/*RESET CSS BEGIN*/
+
+
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+
+/* HTML5 display-role reset for older browsers */
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+    display: block;
+}
+
+body {
+    line-height: 1;
+    font-family: 'Raleway', sans-serif;
+
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+blockquote,
+q {
+    quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+    content: '';
+    content: none;
+}
+
+/*RESET CSS END*/
+
+
+/*HELPER CLASS BEGIN*/
+
+.alignLeft {
+    float: left;
+}
+
+.alignRight {
+    float: right;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0;
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px;
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px;
+}
+
+.margin-bottom-30 {
+    margin-bottom: 30px;
+}
+
+strong,
+b {
+    font-weight: 700;
+}
+
+em,
+i {
+    font-style: italic;
+}
+
+p,
+ul li,
+ol li {
+    font-size: 16px;
+    line-height: 23px;
+    margin: 0 0 20px 0;
+}
+
+ul li,
+ol li {
+    margin-bottom: 5px;
+}
+
+
+/*HELPER CLASS END*/
+
+* {
+    box-sizing: border-box;
+    outline: 0;
+}
+
+
+/* Start style navbar  */
+.navbarGrace .nav-actions li:not(:last-child){
+    color: #12407e !important;
+    background-color: #f2f3f5;
+    margin-right: 5px;
+    border-radius: 6px;
+    padding: 0px 10px;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+.navbarGrace .nav-links li a {
+    color: #000000 !important;
+    text-transform: uppercase;
+}
+.navbarGrace .nav-actions li:last-child  {
+    background-color: #12407e;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+.navbarGrace .nav-actions li:last-child img {
+    margin-top: 4px;
+}
+
+/* f2f3f5  Button BG */
+/* 12407e  Cart Icon BG And Button Color */
