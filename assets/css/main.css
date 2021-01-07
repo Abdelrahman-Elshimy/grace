@@ -280,7 +280,7 @@ ol li {
     bottom: 100px;
     top: auto;
     background-color: #f2f3f5;
-    padding: 15px;
+    padding: 15px 12px;
     opacity: 1;
     border-radius: 50%;
 }
@@ -289,11 +289,10 @@ ol li {
     left: auto;
     bottom: 102px;
     
-    
 }
 .carousel-control-next {    
     right: 17%;
-    padding: 20px;
+    padding: 20px 17px;
 }
 .carousel-control-prev-icon {
     width: 31px;
@@ -311,5 +310,81 @@ ol li {
     
 }
 
+/* Start products section  */
+.shuffleCategory{
+     background: #f2f3f5;
+ }
+.shuffleCategory .price, 
+.shuffleCategory .brands {
+    border: 1px solid #eeeeee;
+    border-radius: 7px;
+    margin-bottom: 20px;
+    padding: 0px 20px;
+    background-color: #ffffff;
+    box-shadow: 1px 1px 3px #eeeeee;
+}
+.shuffleCategory .price > p,
+.shuffleCategory .brands > p {
+    margin: 0;
+    margin-top: 15px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.shuffleCategory .price .ranges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.shuffleCategory .price .ranges > div:not(:nth-child(2)) {
+    padding: 7px 30px;
+    border: 1px solid #eeeeee;
+    border-radius: 50px;
+    color: black;
+    font-weight: bold;
+}
+.shuffleCategory .price .ranges > div:nth-child(2) {
+    margin: 0px 5px;
+    font-size: 30px;
+}
+.shuffleCategory .price input {
+    margin-bottom: 20px;
+    width: 100%;
+}
+.shuffleCategory .brands p a {
+    color: #666666;
+    text-decoration: none;
+}
+.shuffleCategory .product-content {
+    background-color: #ffffff;
+    padding: 30px 0;
+    border-radius: 5px;
+    box-shadow: 1px 1px 5px #eeeeee;
+}
+.shuffleCategory .product-content button {
+    border: 2px solid #000000;
+    border-radius: 20px;
+    color: #000000;
+    padding: 10px 30px;
+    background-color: #ffffff;
+}
+.shuffleCategory .product-content h5 {
+    color: #000000;
+    font-size: 20px;
+    margin: 15px 0;
+    font-weight: bold;
+}
+.shuffleCategory .product-content p {
+    color: #aaaaaa;
+}
+.shuffleCategory .row .row > div {
+    margin-bottom: 20px;
+}
+.shuffleCategory h1 {
+    padding: 70px 0;
+    font-size: 40px;
+    font-weight: bold;
+}
 /* f2f3f5  Button BG */
 /* 12407e  Cart Icon BG And Button Color */
