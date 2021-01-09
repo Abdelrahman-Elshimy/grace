@@ -205,7 +205,12 @@ ol li {
     background-color: transparent !important;
     
 }
-.navbarGrace .nav-actions li:not(:last-child){
+.navbarGrace .nav-actions li a{
+    color: #000000 !important;
+    font-size: 18px;
+    font-weight: 700;
+}
+.navbarGrace .nav-actions .actionBtn{
     color: #12407e !important;
     background-color: #f2f3f5;
     margin-right: 5px;
@@ -214,7 +219,7 @@ ol li {
     text-transform: uppercase;
     font-weight: bold;
 }
-.navbarGrace .nav-actions li:not(:last-child) a{
+.navbarGrace .nav-actions .actionBtn a{
     color: #12407e !important;
 }
 .navbarGrace .nav-links li a {
@@ -279,10 +284,14 @@ ol li {
     width: auto;
     bottom: 100px;
     top: auto;
-    background-color: #f2f3f5;
+    background-color: #ffffff;
     padding: 15px 12px;
     opacity: 1;
     border-radius: 50%;
+}
+.carousel-control-prev:hover,
+.carousel-control-next:hover {
+    background-color: #eeeeee;
 }
 .carousel-control-prev {
     right: 25%;
@@ -315,16 +324,19 @@ ol li {
      background: #f2f3f5;
  }
 .shuffleCategory .price, 
-.shuffleCategory .brands {
+.shuffleCategory .brands,
+.shuffleCategory .colors {
     border: 1px solid #eeeeee;
     border-radius: 7px;
     margin-bottom: 20px;
     padding: 0px 20px;
     background-color: #ffffff;
     box-shadow: 1px 1px 3px #eeeeee;
+    overflow: hidden;
 }
 .shuffleCategory .price > p,
-.shuffleCategory .brands > p {
+.shuffleCategory .brands > p,
+.shuffleCategory .colors > p {
     margin: 0;
     margin-top: 15px;
     font-size: 20px;
@@ -358,9 +370,31 @@ ol li {
 }
 .shuffleCategory .product-content {
     background-color: #ffffff;
-    padding: 30px 0;
+    padding: 30px 20px;
     border-radius: 5px;
     box-shadow: 1px 1px 5px #eeeeee;
+}
+.shuffleCategory .product-content.bl-product-content {
+    background-color: #000000;
+}
+.shuffleCategory .product-content.bl-product-content img {
+    width: 200px;
+}
+.shuffleCategory .product-content.bl-product-content h5 {
+    color: #ffffff;
+}
+.shuffleCategory .product-content.bl-product-content .best-seller-content div p:first-child {
+    color: #dba68f;
+    font-weight: 600;
+}
+.shuffleCategory .product-content.bl-product-content .best-seller-content div button {
+    background-color: #dba68f;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.shuffleCategory .product-content.bl-product-content .best-seller-content {
+    display: flex;
 }
 .shuffleCategory .product-content button {
     border: 2px solid #000000;
@@ -368,6 +402,9 @@ ol li {
     color: #000000;
     padding: 10px 30px;
     background-color: #ffffff;
+}
+.shuffleCategory .product-content img {
+    height: 200px;
 }
 .shuffleCategory .product-content h5 {
     color: #000000;
@@ -386,5 +423,194 @@ ol li {
     font-size: 40px;
     font-weight: bold;
 }
+.shuffleCategory .product-content .new-badge {
+    position: absolute;
+    top: 10px;
+    left: 25px;
+    background-color: #12407e;
+    color: #ffffff;
+    padding: 5px 10px;
+    font-weight: 600;
+    border-radius: 30px;
+}
+.shuffleCategory .colors .row > div > div {
+    width: 30px;
+    height: 30px;
+    background-color: #f00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.shuffleCategory .colors .row > div > div span {
+    display: none;
+}
+.shuffleCategory .colors .row > div > div.active span{
+    display: inline;
+    color: #ffffff;
+}
+.shuffleCategory .colors .row > div > div.col1{
+    background-color: #b8bbc3;
+}
+.shuffleCategory .colors .row > div > div.col2{
+    background-color: #2c2c30;
+}
+.shuffleCategory .colors .row > div > div.col3{
+    background-color: #8f835b;
+}
+.shuffleCategory .colors .row > div > div.col4{
+    background-color: #2c5790;
+}
+.shuffleCategory .colors .row > div > div.col5{
+    background-color: #ebd74f;
+}
+.shuffleCategory .colors .row > div > div.col6{
+    background-color: #b58567;
+}
+.shuffleCategory .colors .row > div > div.col7{
+    background-color: #f9bd8d;
+}
+.shuffleCategory .colors .row > div > div.col8{
+    background-color: #8e8e8e;
+}
+.shuffleCategory .colors .row > div > div.col9{
+    background-color: #5fcdb2;
+}
+.shuffleCategory .colors .row > div > div.col10{
+    background-color: #a02a24;
+}
+.shuffleCategory .pagi-grace {
+    padding: 0px 15px;
+}
+.shuffleCategory .pagination-grace {
+    background-color: #ffffff;
+    margin-bottom: 10px;
+    padding-top: 20px;
+    border-radius: 5px;
+}
+
+.shuffleCategory .pagination-grace .prev-arrow a, 
+.shuffleCategory .pagination-grace .next-arrow a
+{
+    display: flex;
+    align-items: center;
+    color: #12407e;
+}
+.shuffleCategory .pagination-grace .prev-arrow a img, 
+.shuffleCategory .pagination-grace .next-arrow a img {
+    margin: 7px;
+}
+.shuffleCategory .pagination-grace .m-auto{
+    padding: 0;
+    margin: 0 !important;
+    margin-top: 10px !important;
+}
+.shuffleCategory .pagination-grace .numbers-pag a {
+    color: #b8bbc3;
+    text-decoration: none;
+    margin-right: 7px;
+}
+.shuffleCategory .pagination-grace .numbers-pag a.active {
+    color: #ffffff;
+    background: #8f835b;
+    padding: 3px 8px;
+    border-radius: 50%;
+}
+
+footer{ 
+    padding-top: 20px;
+}
+footer .container .row {
+    margin-bottom: 20px;
+}
+footer ul {
+    list-style: none;
+    display: flex;
+}
+footer ul li {
+    margin-right: 10px;
+    margin-top: -3px;
+}
+footer ul li a {
+    text-decoration: none;
+    color: #000000;
+}
+footer span {
+    font-size: 20px;
+    color: #8c9199;
+}
+footer ul li a:hover {
+    color: #000000;
+    text-decoration: none;
+}
+footer .tags li a {
+    color: #8c9199;
+}
+
+
+/* login page style  */
+
+.loginGrace {
+    text-align: center;
+    padding: 30px 0 30px 0;
+    width: 350px;
+    margin: auto;
+    border: 1px solid #dddddd;
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+.registerGrace {
+    width: auto;
+    max-width: 70% !important;
+    margin-top: 20px;
+}
+.loginGrace h1 {
+    font-size: 25px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.bt-divider {
+    height: 2px;
+    width: 100px;
+    background-color: #12407e;
+    margin: auto;
+    margin-bottom: 20px;
+}
+.loginGrace h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.loginGrace a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 17px;
+}
+.loginGrace button,
+.loginGrace .reg {
+    background-color: #12407e;
+    margin-top: 20px;
+    color: #ffffff;
+}
+.registerGrace button {
+    width: 40%;
+}
+.loginGrace .reg {
+    margin-top: 0;
+}
+.registerGrace .reg {
+    width: 30%;
+} 
+.loginGrace input {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #12407e;
+}
+.registerGrace input {
+    border: 1.4px solid #12407e;
+    border-radius: 5px;
+}
+
 /* f2f3f5  Button BG */
 /* 12407e  Cart Icon BG And Button Color */
