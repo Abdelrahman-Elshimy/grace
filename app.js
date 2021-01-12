@@ -6,6 +6,13 @@ const SessionStore = require('connect-mongodb-session')(session);
 // Routes of users
 const userRoutes = require('./routes/user.routes');
 
+// Routes of Admin
+const adminRoutes = require('./routes/admin/main.routes');
+const productRoutes = require('./routes/admin/products.routes')
+
+// Routes of homes
+const HomeRoutes = require('./routes/home.routes');
+
 const app = express();
 
 // Connect DB To Session
@@ -24,18 +31,24 @@ app.use(session({
 // Detrmine Static Folder
 app.use(express.static(path.join(__dirname, 'assets')));
 
+// Detrmine Static Folder
+app.use(express.static(path.join(__dirname, 'images')));
+
 // Determine view engine
 app.set('view engine', 'ejs');
 app.set('views', 'views');
 
-app.get('/', (req, res, next) =>{ 
-    res.render('users/index', {
-        isUser: req.session.userID,
-    })
-})
 
-// Use Routes
+
+// User Routes
 app.use(userRoutes);
+
+// Home Routes
+app.use(HomeRoutes);
+
+// Admin Routes
+app.use('/custom',adminRoutes)
+app.use('/custom',productRoutes)
 
 
 // Listen to server

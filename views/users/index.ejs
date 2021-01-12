@@ -141,36 +141,22 @@
           </div>
           <div class="col-lg-9">
             <div class="row">
+              <% if (typeof products !== 'undefined') { %>
+                <% for (let i =0; i < 3; i++) { %>
               <div class="col-lg-4">
                 <div class="product-content">
                   <div class="new-badge">
                     <span>New</span>
                   </div>
-                  <img src="images/Image.png" alt="Product">
-                  <h5>Smart Watch</h5>
-                  <p>$500</p>
+                  <img src="<%= products[i].image %>" alt="Product">
+                  <h5><%= products[i].name %></h5>
+                  <p>$<%= products[i].price %></p>
                   <button>Buy Now</button>
                 </div>
               </div>
-              <div class="col-lg-4">
-                <div class="product-content">
-                  <div class="new-badge">
-                    <span>New</span>
-                  </div>
-                  <img src="images/im2.png" alt="Product">
-                  <h5>Smart Watch</h5>
-                  <p>$500</p>
-                  <button>Buy Now</button>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="product-content">
-                  <img src="images/im3.png" alt="Product">
-                  <h5>Smart Watch</h5>
-                  <p>$500</p>
-                  <button>Buy Now</button>
-                </div>
-              </div>
+              <% }} %>
+              
+              
               <div class="col-lg-12">
                 <div class="product-content bl-product-content">
                   <div class="new-badge">
