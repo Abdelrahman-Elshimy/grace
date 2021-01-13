@@ -3,17 +3,33 @@ const path = require('path');
 const session = require('express-session');
 const SessionStore = require('connect-mongodb-session')(session);
 
+
+
 // Routes of users
 const userRoutes = require('./routes/user.routes');
 
 // Routes of Admin
 const adminRoutes = require('./routes/admin/main.routes');
 const productRoutes = require('./routes/admin/products.routes')
+const categoriesRoutes = require('./routes/admin/category.routes')
+const brandsRoutes = require('./routes/admin/brands.routes')
 
 // Routes of homes
 const HomeRoutes = require('./routes/home.routes');
 
 const app = express();
+
+
+// Detrmine Static Folder
+app.use(express.static(path.join(__dirname, 'assets')));
+
+// Detrmine Static Folder
+app.use(express.static(path.join(__dirname, 'images')));
+
+// Determine view engine
+app.set('view engine', 'ejs');
+app.set('views', 'views');
+
 
 // Connect DB To Session
 const STORE = new SessionStore({
@@ -28,16 +44,6 @@ app.use(session({
     store: STORE,
 }));
 
-// Detrmine Static Folder
-app.use(express.static(path.join(__dirname, 'assets')));
-
-// Detrmine Static Folder
-app.use(express.static(path.join(__dirname, 'images')));
-
-// Determine view engine
-app.set('view engine', 'ejs');
-app.set('views', 'views');
-
 
 
 // User Routes
@@ -49,6 +55,8 @@ app.use(HomeRoutes);
 // Admin Routes
 app.use('/custom',adminRoutes)
 app.use('/custom',productRoutes)
+app.use('/custom',categoriesRoutes)
+app.use('/custom',brandsRoutes)
 
 
 // Listen to server

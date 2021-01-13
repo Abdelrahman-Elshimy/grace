@@ -7,6 +7,7 @@ const productSchema = mongoose.Schema({
     price: Number,
     description: String,
     image: String,
+    brand: String,
     category: String,
     numberOfSales: {
         type: Number,
@@ -19,6 +20,27 @@ const productSchema = mongoose.Schema({
 });
 
 const Product = mongoose.model('product', productSchema);
+
+exports.getProductsOfCategory = (id) => {
+    return new Promise((resolve, reject) => {
+        mongoose.connect(DB_URL).then(() => {
+            Product.find({category: id}).sort({ _id: -1 }).then((products) => {
+                mongoose.disconnect();
+                resolve(products);
+            }).catch(err => reject(err));
+        }).catch(err => reject(err));
+    })
+}
+exports.getProductsOfBrand = (id) => {
+    return new Promise((resolve, reject) => {
+        mongoose.connect(DB_URL).then(() => {
+            Product.find({brand: id}).sort({ _id: -1 }).then((products) => {
+                mongoose.disconnect();
+                resolve(products);
+            }).catch(err => reject(err));
+        }).catch(err => reject(err));
+    })
+}
 
 exports.getProducts = () => {
     return new Promise((resolve, reject) => {

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const DB_URL = 'mongodb://localhost:27017/grace';
 
-const categorySchema = mongoose.Schema({
+const brandSchema = mongoose.Schema({
     name: String,
     author: {
         type: String,
@@ -10,14 +10,14 @@ const categorySchema = mongoose.Schema({
     }
 });
 
-const Category = mongoose.model('category', categorySchema);
+const Brand = mongoose.model('brand', brandSchema);
 
-exports.getAllCategory = () => {
+exports.getAllBrand = () => {
     return new Promise((resolve, reject) => {
         mongoose.connect(DB_URL).then(() => {
-            Category.find().then((categories) => {
+            Brand.find().then((brands) => {
                 mongoose.disconnect();
-                resolve(categories);
+                resolve(brands);
             }).catch(err => {
                 mongoose.disconnect();
                 reject(err);
@@ -29,11 +29,12 @@ exports.getAllCategory = () => {
     });
 }
 
-exports.addNewCategory = (category) => {
+
+exports.addNewBrand = (brande) => {
     return new Promise((resolve, reject) => {
         mongoose.connect(DB_URL).then(() => {
-            let cat = new Category(category);
-            cat.save().then((cat) => {
+            let brand = new Brand(brande);
+            brand.save().then((brand) => {
                 mongoose.disconnect();
                 resolve();
             }).catch(err => {
