@@ -42,6 +42,17 @@ exports.getProductsOfBrand = (id) => {
     })
 }
 
+exports.getBestSalesProducts = () => {
+    return new Promise((resolve, reject) => {
+        mongoose.connect(DB_URL).then(() => {
+            Product.find().limit(2).sort({ numberOfSales: -1 }).then((products) => {
+                mongoose.disconnect();
+                resolve(products);
+            }).catch(err => reject(err));
+        }).catch(err => reject(err));
+    })
+}
+
 exports.getProducts = () => {
     return new Promise((resolve, reject) => {
         mongoose.connect(DB_URL).then(() => {

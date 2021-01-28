@@ -49,7 +49,7 @@
 
     <section class="shuffleCategory">
       <div class="container text-center">
-        <h1>Men's Watches</h1>
+        <h1>Our Watches</h1>
         <div class="row">
           <div class="col-lg-3">
             <div class="price">
@@ -62,7 +62,7 @@
               </div>
               <input type="range" class="custom-range" class="form-control">
             </div>
-            <div class="colors">
+            <!-- <div class="colors">
               <p>Colors</p>
               <hr>
               <div class="row">
@@ -119,153 +119,79 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
             <div class="brands">
               <p>Brand</p>
               <hr>
               <div class="brands-links text-left">
-                <p><a href="">Rolex</a></p>
-                <p><a href="">Rolex</a></p>
-                <p><a href="">Rolex</a></p>
-                <p><a href="">Rolex</a></p>
-                <p><a href="">Rolex</a></p>
-                <p><a href="">Rolex</a></p>
-                <p><a href="">Rolex</a></p>
-                <p><a href="">Rolex</a></p>
-                <p><a href="">Rolex</a></p>
-                <p><a href="">Rolex</a></p>
-                <p><a href="">Rolex</a></p>
-                <p><a href="">Rolex</a></p>
+                <% if (typeof brands !=='undefined' ) { %>
+                  <% for (let i=0; i < brands.length; i++) { %>
+                <p><a href="/brand/<%= brands[i]._id %>"><%= brands[i].name %></a></p>
+                <% }} %>
               </div>
             </div>
           </div>
           <div class="col-lg-9">
             <div class="row">
-              <% if (typeof products !== 'undefined') { %>
-                <% for (let i =0; i < 3; i++) { %>
-              <div class="col-lg-4">
-                <div class="product-content">
-                  <div class="new-badge">
-                    <span>New</span>
-                  </div>
-                  <img src="<%= products[i].image %>" alt="Product">
-                  <h5><%= products[i].name %></h5>
-                  <p>$<%= products[i].price %></p>
-                  <button>Buy Now</button>
-                </div>
-              </div>
-              <% }} %>
-              
-              
-              <div class="col-lg-12">
-                <div class="product-content bl-product-content">
-                  <div class="new-badge">
-                    <span>BEST SELLERS</span>
-                  </div>
-                  <div class="best-seller-content">
-                    <div>
-                      <img src="images/w1.png" alt="Product">
-                    </div>
-                    <div class="ml-auto">
-                      <p>$500</p>
-                      <h5>Smart Watch</h5>
-                      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
-                        Accusantium enim ipsam distinctio quisquam, culpa similique 
-                        nobis nam ratione rem voluptatem placeat alias sunt omnis?</p>
+              <% if (typeof products !=='undefined' ) { %>
+                <% for (let i=0; i < 3; i++) { %>
+                  <div class="col-lg-4">
+                    <div class="product-content">
+                      <div class="new-badge">
+                        <span>New</span>
+                      </div>
+                      <img src="<%= products[i].image %>" alt="Product">
+                      <h5>
+                        <%= products[i].name %>
+                      </h5>
+                      <p>$<%= products[i].price %>
+                      </p>
                       <button>Buy Now</button>
                     </div>
                   </div>
-                </div>                
-              </div>
-              <div class="col-lg-12">
-                <div class="product-content bl-product-content">
-                  <div class="new-badge">
-                    <span>BEST SELLERS</span>
-                  </div>
-                  <div class="best-seller-content">
-                    <div>
-                      <img src="images/w2.png" alt="Product">
-                    </div>
-                    <div class="ml-auto">
-                      <p>$500</p>
-                      <h5>Smart Watch</h5>
-                      <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.  
-                        Accusantium enim ipsam distinctio quisquam, culpa similique </p>
-                      <button>Buy Now</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="product-content">
-                  <img src="images/im5.png" alt="Product">
-                  <h5>Smart Watch</h5>
-                  <p>$500</p>
-                  <button>Buy Now</button>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="product-content">
-                  <img src="images/im6.png" alt="Product">
-                  <h5>Smart Watch</h5>
-                  <p>$500</p>
-                  <button>Buy Now</button>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="product-content">
-                  <div class="new-badge">
-                    <span>New</span>
-                  </div>
-                  <img src="images/im7.png" alt="Product">
-                  <h5>Smart Watch</h5>
-                  <p>$500</p>
-                  <button>Buy Now</button>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="product-content">
-                  <img src="images/im8.png" alt="Product">
-                  <h5>Smart Watch</h5>
-                  <p>$500</p>
-                  <button>Buy Now</button>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="product-content">
-                  <img src="images/Image.png" alt="Product">
-                  <h5>Smart Watch</h5>
-                  <p>$500</p>
-                  <button>Buy Now</button>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="product-content">
-                  <div class="new-badge">
-                    <span>New</span>
-                  </div>
-                  <img src="images/Image.png" alt="Product">
-                  <h5>Smart Watch</h5>
-                  <p>$500</p>
-                  <button>Buy Now</button>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="product-content">
-                  <img src="images/Image.png" alt="Product">
-                  <h5>Smart Watch</h5>
-                  <p>$500</p>
-                  <button>Buy Now</button>
-                </div>
-              </div>
-              <div class="col-lg-4">
-                <div class="product-content">
-                  <img src="images/Image.png" alt="Product">
-                  <h5>Smart Watch</h5>
-                  <p>$500</p>
-                  <button>Buy Now</button>
-                </div>
-              </div>
+                  <% }} %>
+
+                    <% if (typeof bestSeller !='undefined' ) { bestSeller.map((best)=> { %>
+                      <div class="col-lg-12">
+                        <div class="product-content bl-product-content">
+                          <div class="new-badge">
+                            <span>BEST SELLERS</span>
+                          </div>
+                          <div class="best-seller-content">
+                            <div>
+                              <img src="<%= best.image %>" alt="Product">
+                            </div>
+                            <div class="ml-auto">
+                              <p>$<%= best.price %>
+                              </p>
+                              <h5>
+                                <%= best.name %>
+                              </h5>
+                              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                Accusantium enim ipsam </p>
+                              <button>Buy Now</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <% });} %>
+                        <% if (typeof products !=='undefined' ) { if(products.length> 3) {
+                          for (let i=3; i < products.length; i++) { %>
+                            <div class="col-lg-4">
+                              <div class="product-content">
+                                <img src="<%= products[i].image %>" alt="Product">
+                                <h5>
+                                  <%= products[i].name %>
+                                </h5>
+                                <p>$<%= products[i].price %>
+                                </p>
+                                <button>Buy Now</button>
+                              </div>
+                            </div>
+                            <% }}} %>
+
+
+
             </div>
             <div class="pagi-grace">
               <div class="row pagination-grace">
@@ -296,5 +222,5 @@
       </div>
     </section>
 
-  
+
     <%- include('parts/user.footer.ejs') %>

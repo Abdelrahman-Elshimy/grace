@@ -4,10 +4,26 @@ const brandModel = require('../models/brand.model');
 
 exports.getAllProducts = (req, res, next) => {
     productModel.getProducts().then((products) => {
-        res.render('users/index', {
-            isUser: req.session.userID,
-            products: products
-        })
+        productModel.getBestSalesProducts().then((props) => {
+            categoryModel.getAllCategory().then((cats) => {
+                brandModel.getAllBrand().then((brs) => {
+                    res.render('users/index', {
+                        isUser: req.session.userID,
+                        products: products,
+                        bestSeller: props,
+                        categories: cats,
+                        brands: brs
+                    })
+                }).catch(err => {
+                    res.redirect('/');
+                });
+            }).catch(err => {
+                res.redirect('/');
+            });
+        }).catch(err => {
+            res.redirect('/');
+        });
+        
     }).catch(err => {
         res.redirect('/');
     })

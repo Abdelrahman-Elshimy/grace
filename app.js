@@ -3,8 +3,6 @@ const path = require('path');
 const session = require('express-session');
 const SessionStore = require('connect-mongodb-session')(session);
 
-
-
 // Routes of users
 const userRoutes = require('./routes/user.routes');
 
@@ -16,6 +14,8 @@ const brandsRoutes = require('./routes/admin/brands.routes')
 
 // Routes of homes
 const HomeRoutes = require('./routes/home.routes');
+const catRoutesOfUsers = require('./routes/category.routes');
+const brandRoutesOfUsers = require('./routes/brand.routes');
 
 const app = express();
 
@@ -57,6 +57,9 @@ app.use('/custom',adminRoutes)
 app.use('/custom',productRoutes)
 app.use('/custom',categoriesRoutes)
 app.use('/custom',brandsRoutes)
+// user Routes
+app.use('/category', catRoutesOfUsers)
+app.use('/brand', brandRoutesOfUsers)
 
 
 // Listen to server

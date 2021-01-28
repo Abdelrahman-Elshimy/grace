@@ -1,5 +1,6 @@
 const brandModel = require('./../models/brand.model');
 const productModel = require('../models/products.model');
+const categoryModel = require('../models/category.model');
 
 exports.getAllBrands = (req, res, next) => {
     brandModel.getAllBrand().then((brads) => {
@@ -13,7 +14,6 @@ exports.getAllBrands = (req, res, next) => {
 }
 
 exports.addNewBrand = (req, res, next) => {
-    console.log(req.body);
     brandModel.addNewBrand(req.body).then(() => {
         res.redirect('/custom/brands');
     }).catch((err) => {
@@ -30,4 +30,22 @@ exports.getProductsOfBrand = (req, res, next) => {
         log(err);
         res.redirect('/');
     })
+}
+
+exports.getProOfbrand = (req, res, next) => {
+    productModel.getProductsOfBrand(req.params.id)
+        .then((products) => {
+            productsM = products;
+            return categoryModel.getAllCategory();
+        })
+        .then((cats) => {
+            res.render('users/brand', {
+                products: productsM,
+                isUser: req.session.userID,
+                categories: cats
+            })
+        })
+        .catch(err => {
+            res.redirect('/');
+        })
 }

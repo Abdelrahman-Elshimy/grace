@@ -22,7 +22,7 @@ router.post('/login',
     check('password').notEmpty().withMessage('Password field is required').isLength({ min: 6, max: 12 }).withMessage('Password Length from 6 to 12!'),
     userController.postLoginUser);
 
-    router.post('/register',
+router.post('/register',
     authGuards.isNotAuth,
     bodyParser.urlencoded({ extended: false }),
     check('firstName').notEmpty().withMessage('First name field is required!'),
@@ -30,6 +30,7 @@ router.post('/login',
     check('email').notEmpty().withMessage('Email field is required!').isEmail().withMessage('Email not valid!'),
     check('password').notEmpty().withMessage('Password field is required').isLength({ min: 6, max: 12 }).withMessage('Password Length from 6 to 12!'),
     userController.postNewUser);
+    
 router.get('/logout', (req, res, next) => {
     req.session.destroy(() => {
         res.redirect('/')
