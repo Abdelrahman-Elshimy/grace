@@ -126,8 +126,10 @@
               <div class="brands-links text-left">
                 <% if (typeof brands !=='undefined' ) { %>
                   <% for (let i=0; i < brands.length; i++) { %>
-                <p><a href="/brand/<%= brands[i]._id %>"><%= brands[i].name %></a></p>
-                <% }} %>
+                    <p><a href="/brand/<%= brands[i]._id %>">
+                        <%= brands[i].name %>
+                      </a></p>
+                    <% }} %>
               </div>
             </div>
           </div>
@@ -135,60 +137,37 @@
             <div class="row">
               <% if (typeof products !=='undefined' ) { %>
                 <% for (let i=0; i < 3; i++) { %>
-                  <div class="col-lg-4">
-                    <div class="product-content">
-                      <div class="new-badge">
-                        <span>New</span>
-                      </div>
-                      <img src="<%= products[i].image %>" alt="Product">
-                      <h5>
-                        <%= products[i].name %>
-                      </h5>
-                      <p>$<%= products[i].price %>
-                      </p>
-                      <button>Buy Now</button>
-                    </div>
-                  </div>
-                  <% }} %>
+                  <%- include('../utilities/product.ejs', {i: i}) %>
+                    <% }} %>
 
-                    <% if (typeof bestSeller !='undefined' ) { bestSeller.map((best)=> { %>
-                      <div class="col-lg-12">
-                        <div class="product-content bl-product-content">
-                          <div class="new-badge">
-                            <span>BEST SELLERS</span>
-                          </div>
-                          <div class="best-seller-content">
-                            <div>
-                              <img src="<%= best.image %>" alt="Product">
+                      <% if (typeof bestSeller !='undefined' ) { bestSeller.map((best)=> { %>
+                        <div class="col-lg-12">
+                          <div class="product-content bl-product-content">
+                            <div class="new-badge">
+                              <span>BEST SELLERS</span>
                             </div>
-                            <div class="ml-auto">
-                              <p>$<%= best.price %>
-                              </p>
-                              <h5>
-                                <%= best.name %>
-                              </h5>
-                              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Accusantium enim ipsam </p>
-                              <button>Buy Now</button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <% });} %>
-                        <% if (typeof products !=='undefined' ) { if(products.length> 3) {
-                          for (let i=3; i < products.length; i++) { %>
-                            <div class="col-lg-4">
-                              <div class="product-content">
-                                <img src="<%= products[i].image %>" alt="Product">
-                                <h5>
-                                  <%= products[i].name %>
-                                </h5>
-                                <p>$<%= products[i].price %>
+                            <div class="best-seller-content">
+                              <div>
+                                <img src="<%= best.image %>" alt="Product">
+                              </div>
+                              <div class="ml-auto">
+                                <p>$<%= best.price %>
                                 </p>
+                                <h5>
+                                  <%= best.name %>
+                                </h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                                  Accusantium enim ipsam </p>
                                 <button>Buy Now</button>
                               </div>
                             </div>
-                            <% }}} %>
+                          </div>
+                        </div>
+                        <% });} %>
+                          <% if (typeof products !=='undefined' ) { if(products.length> 3) {
+                            for (let i=3; i < products.length; i++) { %>
+                              <%- include('../utilities/product.ejs', {i: i}) %>
+                                <% }}} %>
 
 
 

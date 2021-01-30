@@ -1,0 +1,36 @@
+<%- include('parts/user.header.ejs') %>
+    <%- include('parts/user.navbar.ejs') %>
+
+        <section class="product-page">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="product-image">
+                            <img src="../<%= product.image %>" alt="">
+                        </div>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="product-details">
+                            <h1 class="mb-2">
+                                <%= product.name %>
+                            </h1>
+                            <p>
+                                <%= product.description %>
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis, laudantium
+                                    sit amet consectetur adipisicing elit. Facilis, laudantium.,
+                            </p>
+                            <p>
+                                $<%= product.price %> USD
+                            </p>
+                            <p>
+                                <span>Company: </span>
+                                <%= product.author %>
+                            </p>
+
+                            <a href="">ADD TO CART</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <%- include('parts/user.footer.ejs') %>

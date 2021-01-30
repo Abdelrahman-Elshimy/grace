@@ -1,93 +1,133 @@
-const productModel = require('./../models/products.model');
-const categoryModel = require('../models/category.model');
-const brandModel = require('../models/brand.model');
+const productModel = require("./../models/products.model");
+const categoryModel = require("../models/category.model");
+const brandModel = require("../models/brand.model");
 
 exports.getAllProducts = (req, res, next) => {
-    productModel.getProducts().then((products) => {
-        productModel.getBestSalesProducts().then((props) => {
-            categoryModel.getAllCategory().then((cats) => {
-                brandModel.getAllBrand().then((brs) => {
-                    res.render('users/index', {
-                        isUser: req.session.userID,
-                        products: products,
-                        bestSeller: props,
-                        categories: cats,
-                        brands: brs
-                    })
-                }).catch(err => {
-                    res.redirect('/');
+  productModel
+    .getProducts()
+    .then((products) => {
+      productModel
+        .getBestSalesProducts()
+        .then((props) => {
+          categoryModel
+            .getAllCategory()
+            .then((cats) => {
+              brandModel
+                .getAllBrand()
+                .then((brs) => {
+                  res.render("users/index", {
+                    isUser: req.session.userID,
+                    products: products,
+                    bestSeller: props,
+                    categories: cats,
+                    brands: brs,
+                  });
+                })
+                .catch((err) => {
+                  res.redirect("/");
                 });
-            }).catch(err => {
-                res.redirect('/');
+            })
+            .catch((err) => {
+              res.redirect("/");
             });
-        }).catch(err => {
-            res.redirect('/');
+        })
+        .catch((err) => {
+          res.redirect("/");
         });
-        
-    }).catch(err => {
-        res.redirect('/');
     })
-}
+    .catch((err) => {
+      res.redirect("/");
+    });
+};
 
 exports.addNewProduct = (req, res, next) => {
-    let product = req.body;
-    product.image = req.file.filename;
-    productModel.addNewProuctOrUpdate(product).then(() => {
-        res.redirect('/custom');
-    }).catch((err) => {
-        res.redirect('/custom/products');
+  let product = req.body;
+  product.image = req.file.filename;
+  productModel
+    .addNewProuctOrUpdate(product)
+    .then(() => {
+      res.redirect("/custom");
     })
-
-}
+    .catch((err) => {
+      res.redirect("/custom/products");
+    });
+};
 
 exports.getAllProductsToAdmin = (req, res, next) => {
-    productModel.getProducts().then((products) => {
-        res.render('admin/main', {
-            isAdmin: req.session.adminID,
-            products: products
-        })
-    }).catch(err => {
-        log(err);
-        res.redirect('/');
+  productModel
+    .getProducts()
+    .then((products) => {
+      res.render("admin/main", {
+        isAdmin: req.session.adminID,
+        products: products,
+      });
     })
-}
+    .catch((err) => {
+      log(err);
+      res.redirect("/");
+    });
+};
 
 exports.deleteProductPost = (req, res, next) => {
-    productModel.deleteProduct(req.params.id).then((product) => {
-        res.redirect('/custom');
-    }).catch((err) => {
-        res.redirect('/custom');
+  productModel
+    .deleteProduct(req.params.id)
+    .then((product) => {
+      res.redirect("/custom");
     })
-}
+    .catch((err) => {
+      res.redirect("/custom");
+    });
+};
 
 exports.updateProductPost = (req, res, next) => {
-
-    productModel.getProduct(req.params.id).then((product) => {
-        categoryModel.getAllCategory().then((cats) => {
-            res.render('admin/addProduct', {
-                categories: cats,
-                product: product,
-                isAdmin: req.session.adminID
-            });
-        }).catch((err) => {
-            res.redirect('/custom');
+  productModel
+    .getProduct(req.params.id)
+    .then((product) => {
+      categoryModel
+        .getAllCategory()
+        .then((cats) => {
+          res.render("admin/addProduct", {
+            categories: cats,
+            product: product,
+            isAdmin: req.session.adminID,
+          });
+        })
+        .catch((err) => {
+          res.redirect("/custom");
         });
-    }).catch((err) => {
-        res.redirect('/custom');
+    })
+    .catch((err) => {
+      res.redirect("/custom");
     });
-}
+};
 
 exports.toAddProduct = (req, res, next) => {
-    categoryModel.getAllCategory().then((cats) => {
-        brandModel.getAllBrand().then((brands) => {
-            res.render('admin/addProduct', {
-                categories: cats,
-                brands: brands,
-                isAdmin: req.session.adminID
-            });
-        })
-    }).catch((err) => {
-        res.redirect('/');
+  categoryModel
+    .getAllCategory()
+    .then((cats) => {
+      brandModel.getAllBrand().then((brands) => {
+        res.render("admin/addProduct", {
+          categories: cats,
+          brands: brands,
+          isAdmin: req.session.adminID,
+        });
+      });
+    })
+    .catch((err) => {
+      res.redirect("/");
     });
+};
 
-}
+exports.getProduct = async (req, res, next) => {
+  try {
+    var product = await productModel.getProduct(req.params.id);
+    var cats = await categoryModel.getAllCategory();
+    res.status(200).render("users/product", {
+      categories: cats,
+      product: product,
+      isUser: req.session.userID,
+    });
+  } catch (err) {
+    res.status(400).redirect("/");
+  }
+};
