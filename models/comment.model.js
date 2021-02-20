@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const DB_URL = "mongodb://localhost:27017/grace";
+const DB_URL =
+  "mongodb+srv://abdo:12345678Abdo@cluster0.3vro7.mongodb.net/grace?retryWrites=true&w=majority";
 
 const commentSchema = mongoose.Schema({
   username: String,

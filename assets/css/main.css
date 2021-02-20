@@ -619,10 +619,14 @@ footer .tags li a {
 /* 12407e  Cart Icon BG And Button Color */
 
 /* Start style product page  */
+.product-image img {
+  width: 100%;
+}
 .product-page .product-image {
   border: 1px solid #eeeeee;
   text-align: center;
   box-shadow: 4px 4px 5px #eeeeee;
+  width: 100%;
 }
 .product-page .product-details h1 {
   font-size: 3rem;

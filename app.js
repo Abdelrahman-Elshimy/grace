@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const session = require("express-session");
+const port = process.env.PORT || 3000;
 const SessionStore = require("connect-mongodb-session")(session);
 const mongoose = require("mongoose");
 
@@ -70,6 +71,6 @@ app.use("/product", productRoutesOfUsers);
 app.use("/comment", commentRoutesOfUsers);
 
 // Listen to server
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log("server listen to port 3000");
 });

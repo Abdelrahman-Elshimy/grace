@@ -1,6 +1,6 @@
-const router = require('express').Router();
-const productsConroller = require('../controllers/products.controller');
+const router = require("express").Router();
+const productsConroller = require("../controllers/products.controller");
 
-router.get('/:id', productsConroller.getProduct);
+router.get("/:id", productsConroller.getProduct);
 
 module.exports = router;
