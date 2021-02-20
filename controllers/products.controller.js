@@ -1,6 +1,8 @@
 const productModel = require("./../models/products.model");
 const categoryModel = require("../models/category.model");
 const brandModel = require("../models/brand.model");
+const commentModel = require("../models/comment.model");
+const userModel = require("../models/Auth/user.model");
 
 exports.getAllProducts = (req, res, next) => {
   productModel
@@ -120,14 +122,25 @@ exports.toAddProduct = (req, res, next) => {
 
 exports.getProduct = async (req, res, next) => {
   try {
-    var product = await productModel.getProduct(req.params.id);
-    var cats = await categoryModel.getAllCategory();
+    let product = await productModel.getProduct(req.params.id);
+    let cats = await categoryModel.getAllCategory();
+    let comments = await commentModel.getComments(req.params.id);
+    let user = await userModel.getUserInfo(req.session.userID);
+    let rate = 0;
+    for (const comment of comments) {
+      rate += parseInt(comment.rate);
+    }
+
     res.status(200).render("users/product", {
       categories: cats,
       product: product,
       isUser: req.session.userID,
+      comments: comments,
+      rate: rate / comments.length,
+      user: user[0],
     });
   } catch (err) {
+    console.log(err);
     res.status(400).redirect("/");
   }
 };

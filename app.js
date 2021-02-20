@@ -23,6 +23,7 @@ const HomeRoutes = require("./routes/home.routes");
 const catRoutesOfUsers = require("./routes/category.routes");
 const brandRoutesOfUsers = require("./routes/brand.routes");
 const productRoutesOfUsers = require("./routes/product.routes");
+const commentRoutesOfUsers = require("./routes/comment.routes");
 
 const app = express();
 
@@ -66,6 +67,7 @@ app.use("/custom", brandsRoutes);
 app.use("/category", catRoutesOfUsers);
 app.use("/brand", brandRoutesOfUsers);
 app.use("/product", productRoutesOfUsers);
+app.use("/comment", commentRoutesOfUsers);
 
 // Listen to server
 app.listen(3000, () => {

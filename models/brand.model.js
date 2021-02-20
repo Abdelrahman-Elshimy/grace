@@ -12,7 +12,7 @@ const brandSchema = mongoose.Schema({
 
 const Brand = mongoose.model("brand", brandSchema);
 
-exports.getAllBrand = async () => {
+exports.getAllBrand = () => {
   return new Promise((resolve, reject) => {
     mongoose
       .connect(DB_URL)
